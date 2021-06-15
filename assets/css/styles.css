@@ -1,0 +1,289 @@
+html{
+    font-size: 100%;
+    height: 100%;
+    margin: 0;
+}
+body{
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    color: #333333;
+    LINE-HEIGHT:150%; /*行距*/
+    letter-spacing:1px; /*字距*/
+    text-align:justify; /*齊行*/
+    background-color: white;
+    height: 100%;
+    margin: 0;
+}
+.border{
+    border-width: 1px;
+    border-style: hidden;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    
+
+}
+
+/* Link Decoration */
+a:link{
+    text-decoration: none;
+    color: black;
+}
+a:visited{
+    text-decoration: none;
+    color: black;
+}
+a:hover{
+    text-decoration: none;
+    color: rgb(0, 225, 255);
+}
+
+#head{
+    background-color: black;
+    background-size: cover;
+    color: white;
+    padding: 30px 30px 30px 30px;
+    height: 100vh;
+    z-index: 0;
+}
+#head .title{
+    font-family: 'Roboto', sans-serif;
+    font-size: 49px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#head .title a{
+    text-decoration: none;
+    color: #333333;
+}
+
+/* Navigation */
+nav {
+    float: right;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav ul li {
+    float: left;
+    position: relative;
+}
+nav ul li a {
+    display: block;
+    padding: 0 20px;
+    line-height: 70px;
+    background: white;
+    color: black;
+    text-decoration: none;
+    /*
+    The full path of this code is nav ul li a:not(:only-child):after. This means that the code will apply to any a tag in our nav list that is NOT an only child, aka any dropdown. The :after means it comes after the output of the tag. I’ve decided that to specify any nav item as a dropdown, it will be followed by a unicode arrow – ▾ (#9662).
+    */
+}
+nav ul li a:visited{
+    color: black;
+}
+nav ul li a:hover {
+    background: rgb(196, 196, 196, 0.15);
+    color: rgb(0, 225, 255);
+}
+nav ul li a:not(:only-child):after {
+    padding-left: 4px;
+    content: ' ▾';
+}
+nav ul li ul li {
+    min-width: 190px;
+}
+nav ul li ul li a {
+    padding: 15px;
+    line-height: 20px;
+}
+  
+.nav-dropdown {
+    position: absolute;
+    z-index: 1;
+    /* Guarantees that the dropdown will display on top of any content. */
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+    display: none;
+}
+  
+.nav-mobile {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: white;
+    height: 70px;
+    width: 70px;
+}
+  
+@media only screen and (max-width: 800px) {
+    .nav-mobile {
+      display: block;
+    }
+  
+    nav {
+      width: 100%;
+      padding: 0px 0 15px;
+    }
+    nav ul {
+      display: none;
+    }
+    nav ul li {
+      float: none;
+    }
+    nav ul li a {
+      padding: 15px;
+      line-height: 20px;
+    }
+    nav ul li ul li a {
+      padding-left: 30px;
+    }
+}
+#nav-toggle {
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    cursor: pointer;
+    padding: 10px 35px 16px 0px;
+}
+#nav-toggle span,
+#nav-toggle span:before,
+#nav-toggle span:after {
+    cursor: pointer;
+    border-radius: 1px;
+    height: 5px;
+    width: 35px;
+    background: white;
+    position: absolute;
+    display: block;
+    content: '';
+    transition: all 300ms ease-in-out;
+}
+#nav-toggle span:before {
+    top: -10px;
+}
+#nav-toggle span:after {
+    bottom: -10px;
+}
+#nav-toggle.active span {
+    background-color: transparent;
+}
+#nav-toggle.active span:before, #nav-toggle.active span:after {
+    top: 0;
+}
+#nav-toggle.active span:before {
+    transform: rotate(45deg);
+}
+#nav-toggle.active span:after {
+    transform: rotate(-45deg);
+}
+  
+@media screen and (min-width: 800px) {
+    .nav-list {
+      display: block !important;
+    }
+}
+  /* 
+  .navigation – the outer wrapper for the navbar. Specifies the height and color, and will stretch the full width of the viewport.
+  */
+.navigation {
+    height: 70px;
+    background: white;
+}
+  
+  /*
+  .nav-container – the inner wrapper for the navbar. Defines how far the actual content should stretch.
+  */
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+  
+.brand {
+    position: relative;
+    padding-left: 0px;
+    float: left;
+    line-height: 70px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+}
+.brand a,
+.brand a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+/* Intro */
+.typing{
+    width: 7em; height: 1.5em;
+    border-right: 1px solid transparent;
+    animation: typing 2.5s steps(27, end), blink-caret .75s step-end infinite;
+    font-family: 'Roboto', sans-serif;
+    word-break: break-all;
+    overflow: hidden;
+}
+/* type */
+@keyframes typing{
+    from { width: 0;}
+    to { width: 7em;}
+}
+/*cursor*/
+@keyframes blink-caret{
+    from, to { border-color: transparent; }
+    50%{ border-color: currentColor;}
+}
+
+/* News */
+.news{
+    background-color: white;
+    color: black;
+    font-size: 15px;
+}
+/* Carousel 
+.carousel-inner .item.left.active{
+    transform: translateX(-33%);
+}
+.carousel-inner .item.right.active{
+    transform: translateX(33%);
+}
+.carousel-inner .item.next{
+    transform: translateX(33%);
+}
+.carousel-inner .item.prev{
+    transform: translateX(-33%);
+}
+.carousel-inner .item.right,
+.carousel-inner .item.left{
+    transform: translateX(0);
+}*/
+.carousel-control.left,.carousel-control.right{
+    background-image: none;
+}
+
+
+
+.img{
+    width: 100%;
+    top: 0;
+    left: 0;
+}
+
+/*  Footer */
+footer{
+    padding-top: 20px;
+    padding-bottom: 10px;
+    background-color: rgba(196, 196, 196, 0.15);
+    font-size: 15px;
+    color: black;
+    border-color: rgba(196, 196, 196, 0.15);
+}
+
+.center{
+    text-align: center;
+}
+
+/* info */
